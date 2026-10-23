@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Марк Олійник — Frontend-розробник</title>
+  <meta name="description" content="Портфоліо frontend-розробника: вибрані роботи, досвід і контакти.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="site-header surface-brand" id="site-header">
+    <div class="wrap site-header__bar">
+      <a class="logo" href="#top" aria-label="Марк Олійник, на початок">
+        <span class="logo__mark">МО</span>
+        <span class="logo__name">Марк Олійник</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основна навігація">
+        <ul>
+          <li><a href="#work">Роботи</a></li>
+          <li><a href="#about">Про мене</a></li>
+          <li><a href="#experience">Досвід</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--outline btn--sm site-header__cta" href="#contact">Написати</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__text">Меню</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ГЕРОЙ -->
+    <section class="hero surface-brand" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__main">
+          <p class="status"><span class="status__dot" aria-hidden="true"></span>Відкритий до нових проєктів</p>
+
+          <h1 class="hero__title" id="hero-title">
+            Збираю <span class="hl">інтерфейси</span>, які відчуваються <span class="hl">живими</span>.
+          </h1>
+
+          <p class="hero__lead">
+            Я Марк, frontend-розробник. Проєктую та розробляю сайти й вебзастосунки:
+            від першого прототипу до релізу та підтримки.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--pop" href="#work">
+              Дивитись роботи
+              <svg class="icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v13M4 11l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#contact">Обговорити проєкт</a>
+          </div>
+
+          <dl class="facts">
+            <div><dt class="label">Роль</dt><dd>Frontend / Creative dev</dd></div>
+            <div><dt class="label">Досвід</dt><dd>5 років</dd></div>
+            <div><dt class="label">Стек</dt><dd>React, TypeScript, Node</dd></div>
+            <div><dt class="label">Формат</dt><dd>Віддалено</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero__aside">
+          <div class="portrait" role="img" aria-label="Місце для вашого фото">
+            <span class="portrait__initials" aria-hidden="true">МО</span>
+            <span class="portrait__note label">Тут буде фото</span>
+          </div>
+
+          <!-- Круговий напис. Пізніше обертатиметься -->
+          <svg class="badge" viewBox="0 0 140 140" width="132" height="132" aria-hidden="true">
+            <circle class="badge__disc" cx="70" cy="70" r="70"/>
+            <path id="badge-path" d="M70,70 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0" fill="none"/>
+            <text class="badge__text"><textPath href="#badge-path" textLength="322" lengthAdjust="spacing">ВІДКРИТИЙ ДО ПРОЄКТІВ • ПИШІТЬ • </textPath></text>
+            <path class="badge__arrow" d="M58 58l24 24M82 62v20H62" fill="none" stroke-width="3" stroke-linecap="square"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- СТРІЧКА ТЕХНОЛОГІЙ. Пізніше бігтиме по колу -->
+    <div class="marquee surface-pop" role="group" aria-label="Технології, з якими працюю">
+      <ul class="marquee__track">
+        <li>React</li><li>TypeScript</li><li>Next.js</li><li>Node.js</li><li>Three.js</li>
+        <li>GSAP</li><li>Figma</li><li>PostgreSQL</li><li>Tailwind</li><li>D3</li>
+      </ul>
+    </div>
+
+    <!-- РОБОТИ -->
+    <section class="section surface-paper" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="section__head">
+          <h2 class="h2" id="work-title">Вибрані роботи</h2>
+          <p class="label muted">4 проєкти · 2024 — 2026</p>
+        </header>
+
+        <div class="projects">
+
+          <article class="project">
+            <a class="project__link" href="#">
+              <div class="thumb thumb--brand">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect class="t-bg" width="400" height="300"/>
+                  <rect class="t-light" x="40" y="44" width="320" height="216"/>
+                  <rect class="t-dark" x="68" y="170" width="18" height="60"/>
+                  <rect class="t-dark" x="100" y="135" width="18" height="95"/>
+                  <rect class="t-dark" x="132" y="160" width="18" height="70"/>
+                  <rect class="t-dark" x="164" y="110" width="18" height="120"/>
+                  <rect class="t-dark" x="196" y="140" width="18" height="90"/>
+                  <rect class="t-pop" x="228" y="90" width="18" height="140"/>
+                  <rect class="t-dark" x="260" y="120" width="18" height="110"/>
+                  <circle class="t-pop" cx="338" cy="70" r="38"/>
+                  <circle class="t-bg" cx="338" cy="70" r="16"/>
+                </svg>
+              </div>
+              <div class="project__top">
+                <h3 class="project__title">Lumen</h3>
+                <span class="project__year label">2026</span>
+              </div>
+              <p class="project__desc">Дашборд аналітики для SaaS-команд: живі графіки, гнучкі фільтри та експорт звітів.</p>
+              <ul class="tags" aria-label="Технології">
+                <li>React</li><li>TypeScript</li><li>D3</li>
+              </ul>
+              <span class="circle-arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+          </article>
+
+          <article class="project">
+            <a class="project__link" href="#">
+              <div class="thumb thumb--pop">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect class="t-bg" width="400" height="300"/>
+                  <circle class="t-light" cx="312" cy="82" r="30"/>
+                  <polygon class="t-brand" points="0,300 120,100 205,215 290,70 400,300"/>
+                  <polygon class="t-dark" points="0,300 80,190 170,300"/>
+                  <polygon class="t-light" points="120,100 138,128 120,122 102,128" />
+                  <polygon class="t-light" points="290,70 311,106 290,98 269,106" />
+                </svg>
+              </div>
+              <div class="project__top">
+                <h3 class="project__title">Ridge</h3>
+                <span class="project__year label">2025</span>
+              </div>
+              <p class="project__desc">Інтернет-магазин спорядження для гір: швидкий каталог, підбір за маршрутом, оплата в один крок.</p>
+              <ul class="tags" aria-label="Технології">
+                <li>Next.js</li><li>Shopify</li><li>Tailwind</li>
+              </ul>
+              <span class="circle-arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+          </article>
+
+          <article class="project">
+            <a class="project__link" href="#">
+              <div class="thumb thumb--night">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect class="t-bg" width="400" height="300"/>
+                  <circle class="t-ring" cx="200" cy="150" r="45"/>
+                  <circle class="t-ring" cx="200" cy="150" r="85"/>
+                  <circle class="t-ring" cx="200" cy="150" r="125"/>
+                  <circle class="t-ring" cx="200" cy="150" r="165"/>
+                  <circle class="t-brand" cx="200" cy="150" r="26"/>
+                  <circle class="t-pop" cx="285" cy="66" r="13"/>
+                  <circle class="t-light" cx="118" cy="188" r="9"/>
+                  <circle class="t-pop" cx="318" cy="205" r="7"/>
+                </svg>
+              </div>
+              <div class="project__top">
+                <h3 class="project__title">Orbita</h3>
+                <span class="project__year label">2025</span>
+              </div>
+              <p class="project__desc">Лендінг космічного стартапу з 3D-сценою, що реагує на скрол і курсор.</p>
+              <ul class="tags" aria-label="Технології">
+                <li>Three.js</li><li>GSAP</li><li>Vite</li>
+              </ul>
+              <span class="circle-arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+          </article>
+
+          <article class="project">
+            <a class="project__link" href="#">
+              <div class="thumb thumb--tint">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect class="t-bg" width="400" height="300"/>
+                  <rect class="t-brand" x="70" y="170" width="70" height="90"/>
+                  <rect class="t-dark" x="165" y="90" width="70" height="170"/>
+                  <rect class="t-pop" x="260" y="130" width="70" height="130"/>
+                  <rect class="t-light" x="180" y="108" width="14" height="14"/>
+                  <rect class="t-light" x="206" y="108" width="14" height="14"/>
+                  <rect class="t-light" x="180" y="136" width="14" height="14"/>
+                  <rect class="t-light" x="206" y="136" width="14" height="14"/>
+                  <rect class="t-dark" x="50" y="260" width="300" height="6"/>
+                </svg>
+              </div>
+              <div class="project__top">
+                <h3 class="project__title">Vezha</h3>
+                <span class="project__year label">2024</span>
+              </div>
+              <p class="project__desc">Платформа онлайн-курсів: особисті кабінети, відеоуроки, тести та сертифікати.</p>
+              <ul class="tags" aria-label="Технології">
+                <li>Node.js</li><li>PostgreSQL</li><li>React</li>
+              </ul>
+              <span class="circle-arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+          </article>
+
+        </div>
+
+        <h3 class="label muted archive__title">Архів</h3>
+        <ul class="archive">
+          <li><a href="#"><span class="archive__name">Weather Atlas</span><span class="archive__type">Візуалізація даних</span><span class="archive__tech">D3, Svelte</span><span class="archive__year label">2024</span><span class="archive__go" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></span></a></li>
+          <li><a href="#"><span class="archive__name">Notekeeper</span><span class="archive__type">Вебзастосунок</span><span class="archive__tech">React, Firebase</span><span class="archive__year label">2023</span><span class="archive__go" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></span></a></li>
+          <li><a href="#"><span class="archive__name">Kvartal Studio</span><span class="archive__type">Сайт-візитка</span><span class="archive__tech">Astro, GSAP</span><span class="archive__year label">2023</span><span class="archive__go" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></span></a></li>
+          <li><a href="#"><span class="archive__name">Pay Split</span><span class="archive__type">Інтеграція платежів</span><span class="archive__tech">Node.js, Stripe</span><span class="archive__year label">2022</span><span class="archive__go" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></span></a></li>
+          <li><a href="#"><span class="archive__name">Zoryana</span><span class="archive__type">Лендінг</span><span class="archive__tech">HTML, CSS, JS</span><span class="archive__year label">2021</span><span class="archive__go" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ПРО МЕНЕ -->
+    <section class="section surface-night" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <header class="section__head">
+          <h2 class="h2" id="about-title">Про мене</h2>
+          <p class="label night-soft">Хто я і чим займаюсь</p>
+        </header>
+
+        <div class="about__grid">
+          <p class="about__statement">
+            Мені подобається момент, коли інтерфейс перестає бути набором екранів
+            і починає <span class="hl">відгукуватися</span> на дотик, скрол і настрій.
+            Я працюю на межі дизайну та коду, тому деталі не губляться між макетом і релізом.
+          </p>
+          <p class="about__text">
+            Останні п’ять років будую вебпродукти для стартапів і студій: від дашбордів
+            із важкими даними до маркетингових сайтів із 3D. Ціную доступність, швидкість
+            і чисті компоненти, які потім легко підтримувати.
+          </p>
+        </div>
+
+        <ul class="services">
+          <li>
+            <h3 class="services__title">Інтерфейси</h3>
+            <p>Адаптивна верстка, дизайн-системи та бібліотеки компонентів, що масштабуються разом із продуктом.</p>
+            <p class="label night-soft">React · Next.js · TypeScript · Tailwind</p>
+          </li>
+          <li>
+            <h3 class="services__title">Рух і візуалізація</h3>
+            <p>Анімації, переходи між сторінками, інтерактивні графіки та 3D у браузері без втрати швидкості.</p>
+            <p class="label night-soft">GSAP · Three.js · D3 · Framer Motion</p>
+          </li>
+          <li>
+            <h3 class="services__title">Продукт під ключ</h3>
+            <p>Беру на себе API, базу даних і деплой, щоб проєкт працював від першого дня.</p>
+            <p class="label night-soft">Node.js · PostgreSQL · Docker · Vercel</p>
+          </li>
+        </ul>
+
+        <dl class="stats">
+          <div><dt class="label night-soft">років у розробці</dt><dd>5</dd></div>
+          <div><dt class="label night-soft">запущені проєкти</dt><dd>32</dd></div>
+          <div><dt class="label night-soft">країн клієнтів</dt><dd>9</dd></div>
+          <div><dt class="label night-soft">Lighthouse на релізах</dt><dd>100</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ДОСВІД -->
+    <section class="section surface-paper" id="experience" aria-labelledby="exp-title">
+      <div class="wrap">
+        <header class="section__head">
+          <h2 class="h2" id="exp-title">Досвід</h2>
+          <a class="btn btn--ink btn--sm" href="#">Завантажити CV (PDF)</a>
+        </header>
+
+        <ol class="timeline">
+          <li>
+            <p class="timeline__years label">2024 — тепер</p>
+            <div class="timeline__role">
+              <h3>Senior Frontend-розробник</h3>
+              <p class="muted">Northwind Labs</p>
+            </div>
+            <p class="timeline__desc">Веду фронтенд продукту аналітики. Створив дизайн-систему та скоротив час завантаження головних екранів на 40%.</p>
+          </li>
+          <li>
+            <p class="timeline__years label">2022 — 2024</p>
+            <div class="timeline__role">
+              <h3>Frontend-розробник</h3>
+              <p class="muted">Kvartal Studio</p>
+            </div>
+            <p class="timeline__desc">Робив сайти й магазини для клієнтів із Європи. Впровадив анімаційні сценарії на GSAP та перейшов на Next.js.</p>
+          </li>
+          <li>
+            <p class="timeline__years label">2020 — 2022</p>
+            <div class="timeline__role">
+              <h3>Web-розробник</h3>
+              <p class="muted">Фріланс</p>
+            </div>
+            <p class="timeline__desc">Перші комерційні проєкти: лендінги, адмін-панелі та інтеграції з платіжними сервісами.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- КОНТАКТИ -->
+    <section class="section contact surface-brand" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="label contact__eyebrow">Контакти</p>
+        <h2 class="contact__title" id="contact-title">Є ідея? Давайте зробимо її разом.</h2>
+
+        <a class="contact__mail" href="mailto:hello@example.com" id="contact-mail">hello@example.com</a>
+
+        <div class="contact__row">
+          <button class="btn btn--pop" type="button" id="copy-mail" data-email="hello@example.com">Скопіювати пошту</button>
+          <p class="contact__note">Відповідаю протягом доби.</p>
+        </div>
+
+        <ul class="socials" aria-label="Соцмережі">
+          <li><a href="https://github.com/" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://t.me/" rel="noopener">Telegram</a></li>
+          <li><a href="https://www.behance.net/" rel="noopener">Behance</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer surface-night">
+    <div class="wrap site-footer__bar">
+      <p class="label">© <span id="year">2026</span> Марк Олійник</p>
+      <p class="label night-soft">Зроблено вручну, без конструкторів</p>
+      <a class="label to-top" href="#top">Нагору ↑</a>
+    </div>
+  </footer>
+
+  <!-- Тимчасова панель макета: перемикач палітр. Не входить у фінальний сайт -->
+  <div class="palette-switch" data-mockup-only>
+    <span class="label">Палітра</span>
+    <button type="button" class="swatch" data-palette-set="cobalt" aria-label="Кобальт" aria-pressed="true" style="--sw-a:#2a3bff;--sw-b:#ffb4d6"></button>
+    <button type="button" class="swatch" data-palette-set="forest" aria-label="Хвоя" aria-pressed="false" style="--sw-a:#16372b;--sw-b:#ff9a6b"></button>
+    <button type="button" class="swatch" data-palette-set="wine" aria-label="Бордо" aria-pressed="false" style="--sw-a:#5b1233;--sw-b:#ffc857"></button>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
