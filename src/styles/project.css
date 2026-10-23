@@ -1,0 +1,284 @@
+/* ==========================================================================
+   Сторінка проєкту: заголовок, вікно з задеплоєним сайтом, опис, навігація
+   Підключається разом із style.css на сторінках у папці projects/
+   ========================================================================== */
+
+/* ---------- Верх сторінки ---------- */
+
+.proj-hero {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  padding-top: calc(var(--bar-h) + 12px + clamp(32px, 5vw, 72px));
+  padding-bottom: clamp(32px, 4vw, 56px);
+}
+
+.proj-hero::before {
+  content: "";
+  position: absolute;
+  inset: -10% -10% 0;
+  z-index: -1;
+  background:
+    radial-gradient(34% 55% at 80% 20%, color-mix(in srgb, var(--neon-1) 24%, transparent), transparent 70%),
+    radial-gradient(26% 40% at 8% 90%, color-mix(in srgb, var(--neon-1) 12%, transparent), transparent 70%);
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: clamp(24px, 3vw, 40px);
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.04);
+  color: var(--muted);
+  font: 500 0.8125rem/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.back:hover { color: var(--text); border-color: var(--neon-2); }
+
+.proj-title {
+  font: 800 clamp(3rem, 11vw, 9rem)/0.95 var(--font-display);
+  letter-spacing: -0.05em;
+  overflow-wrap: break-word;
+}
+
+.proj-lead {
+  max-width: 52ch;
+  margin-top: clamp(16px, 2vw, 28px);
+  font-size: clamp(1.0625rem, 1.6vw, 1.3rem);
+  color: var(--muted);
+}
+
+.proj-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: clamp(28px, 4vw, 56px);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.proj-meta dt { margin-bottom: 0.4rem; color: var(--muted); }
+.proj-meta dd { font-weight: 500; line-height: 1.4; }
+
+.proj-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.proj-status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-2);
+  box-shadow: 0 0 10px var(--neon-2);
+}
+
+/* ---------- Вікно перегляду ---------- */
+
+.viewer-section { padding-bottom: clamp(56px, 8vw, 112px); }
+
+.viewer {
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--card);
+  box-shadow: 0 40px 120px -50px var(--glow-1);
+}
+
+.viewer__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.viewer__dots { display: flex; gap: 0.5rem; }
+.viewer__dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); }
+.viewer__dots span:first-child { background: var(--neon-1); box-shadow: 0 0 8px var(--glow-1); }
+
+.viewer__url {
+  display: flex;
+  align-items: center;
+  flex: 1 1 220px;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.05);
+  color: var(--muted);
+  font: 400 0.8125rem/1.2 var(--font-mono);
+  white-space: nowrap;
+}
+
+.viewer__url svg { flex: none; color: var(--neon-2); }
+.viewer__url span { overflow: hidden; text-overflow: ellipsis; }
+
+.viewer__sizes {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.05);
+}
+
+.size-btn {
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font: 500 0.75rem/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.size-btn:hover { color: var(--text); }
+.size-btn[aria-pressed="true"] { background: var(--grad); color: var(--on-neon); }
+
+.tool-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.05);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tool-btn:hover { border-color: var(--neon-2); color: var(--neon-2); }
+
+.viewer__stage {
+  display: flex;
+  justify-content: center;
+  padding: clamp(12px, 2.5vw, 32px);
+  background:
+    radial-gradient(60% 70% at 50% 0%, color-mix(in srgb, var(--neon-1) 14%, transparent), transparent 70%),
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 32px 32px,
+    var(--bg);
+}
+
+/* Меншe вікно всередині сторінки. Ширину задає data-size */
+.viewer__window {
+  --w: 100%;
+  position: relative;
+  width: var(--w);
+  max-width: 100%;
+  height: clamp(440px, 72vh, 780px);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.8);
+}
+
+.viewer__window[data-size="tablet"] { --w: 768px; }
+.viewer__window[data-size="mobile"] { --w: 390px; }
+
+.viewer__window iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+/* Індикатор завантаження показуємо лише коли працює JS, щоб він ніколи не закрив сайт */
+.viewer__loading { display: none; }
+
+.js .viewer__loading:not([hidden]) {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--card);
+  color: var(--muted);
+  font: 500 0.8125rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.viewer__hint {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.viewer__hint a { color: var(--text); text-decoration-color: var(--neon-1); text-underline-offset: 0.2em; }
+.viewer__hint a:hover { color: var(--neon-2); }
+
+/* ---------- Опис ---------- */
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.proj-grid .tile { display: flex; flex-direction: column; gap: 0.9rem; }
+.proj-grid .tile p:not(.label) { color: var(--muted); }
+.proj-grid .tile .label { color: var(--neon-2); }
+
+.proj-tags { margin-top: clamp(20px, 3vw, 32px); }
+.proj-tags .tags { margin-top: 0; padding-top: 0; }
+
+/* ---------- Навігація між проєктами ---------- */
+
+.proj-pager { padding-block: 0 clamp(72px, 10vw, 144px); }
+
+.proj-pager__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.pager-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: clamp(20px, 2.6vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  text-decoration: none;
+}
+
+.pager-link--next { text-align: right; align-items: flex-end; }
+.pager-link:hover { border-color: color-mix(in srgb, var(--neon-1) 60%, transparent); box-shadow: 0 0 50px -24px var(--glow-1); }
+.pager-link__title { font: 700 clamp(1.5rem, 3vw, 2.4rem)/1.1 var(--font-display); letter-spacing: -0.03em; }
+.pager-link:hover .pager-link__title { color: var(--neon-2); }
+
+/* ---------- Адаптив ---------- */
+
+@media (max-width: 900px) {
+  .proj-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proj-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .viewer__sizes { display: none; }
+  .viewer__dots { display: none; }
+  .viewer__window { height: clamp(420px, 68vh, 640px); }
+}
+
+@media (max-width: 520px) {
+  .proj-pager__grid { grid-template-columns: minmax(0, 1fr); }
+}

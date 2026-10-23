@@ -1,0 +1,308 @@
+/* ==========================================================================
+   Анімації та переходи
+
+   Усе, що рухається, живе тут і в js/motion.js. Щоб побачити статичну
+   версію, закоментуйте підключення цих двох файлів в index.html.
+
+   Що тут є:
+   1. Плавна зміна палітри
+   2. Поява героя при завантаженні (слова, кнопки, код-вікно)
+   3. «Друк» коду і світловий промінь по рамці
+   4. Дрейф фіолетових плям, левітація чипів, пульс статусу
+   5. Безкінечна стрічка технологій
+   6. Поява блоків при скролі
+   7. Наведення: підсвітка за курсором, зум прев’ю, стрілки, кнопки
+   8. Навігація: активний пункт, прогрес скролу
+   9. Хронологія, що «малюється» при скролі
+   10. Світло за курсором
+   11. Перехід між сторінками та вікно проєкту
+   ========================================================================== */
+
+@property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #050409; }
+@property --text { syntax: "<color>"; inherits: true; initial-value: #f2eeff; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #a29cbd; }
+@property --neon-1 { syntax: "<color>"; inherits: true; initial-value: #8f5bff; }
+@property --neon-2 { syntax: "<color>"; inherits: true; initial-value: #e6dcff; }
+
+:root {
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* 1. Палітра змінюється плавно, а не стрибком */
+  transition: --bg 0.6s ease, --text 0.6s ease, --muted 0.6s ease, --neon-1 0.6s ease, --neon-2 0.6s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ---------- 2. Поява героя ---------- */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes word {
+  from { opacity: 0; transform: translateY(0.45em); filter: blur(10px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+
+.status { animation: rise 0.8s var(--ease) 0.05s both; }
+.w__in { animation: word 0.9s var(--ease) calc(0.15s + var(--i, 0) * 0.09s) both; }
+.hero__lead { animation: rise 0.9s var(--ease) 0.6s both; }
+.hero__actions { animation: rise 0.9s var(--ease) 0.75s both; }
+.hero__chips { animation: rise 0.9s var(--ease) 0.9s both; }
+.hero__aside { animation: rise 1.1s var(--ease) 0.3s both; }
+
+/* ---------- 3. Друк коду і промінь по рамці ---------- */
+
+@keyframes type {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.ln {
+  animation: type calc(var(--n) * 14ms) steps(var(--n), end) var(--t, 0ms) both;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1.1s steps(1) infinite; }
+
+@keyframes beam { to { --a: 360deg; } }
+
+/* Білий промінь біжить по рамці код-вікна. Фіолетовий хвіст, яскрава голівка */
+.code {
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    conic-gradient(from var(--a), transparent 0deg 240deg, color-mix(in srgb, var(--neon-1) 85%, transparent) 300deg, #fff 350deg, transparent 360deg) border-box,
+    linear-gradient(var(--line-strong), var(--line-strong)) border-box;
+  animation: beam 7s linear infinite;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.5s var(--ease);
+}
+
+/* ---------- 4. Фонові рухи ---------- */
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-3%, 2.5%, 0) scale(1.1); }
+}
+
+.hero::after { animation: drift 16s ease-in-out infinite alternate; }
+
+@keyframes float {
+  50% { transform: translateY(-9px); }
+}
+
+.float-chip--a { animation: pop 0.8s var(--ease) 1.3s both, float 6s ease-in-out 2.1s infinite; }
+.float-chip--b { animation: pop 0.8s var(--ease) 1.5s both, float 7s ease-in-out 2.3s infinite reverse; }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--neon-2) 55%, transparent), 0 0 10px var(--neon-2); }
+  70%, 100% { box-shadow: 0 0 0 9px transparent, 0 0 10px var(--neon-2); }
+}
+
+.status__dot { animation: pulse 2.2s ease-out infinite; }
+
+/* ---------- 5. Стрічка технологій ---------- */
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+.marquee__track { animation: marquee 55s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+.marquee__list li {
+  transition: -webkit-text-stroke-color 0.3s ease;
+}
+
+.marquee__list li:hover { -webkit-text-stroke-color: var(--neon-2); }
+
+/* ---------- 6. Поява при скролі ---------- */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition-delay: var(--d, 0s);
+}
+
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- 7. Наведення ---------- */
+
+/* Підсвітка, що йде за курсором всередині картки */
+.spot { position: relative; }
+
+.spot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--neon-2) 11%, transparent), transparent 60%);
+  transition: opacity 0.4s ease;
+}
+
+.spot:hover::after { opacity: 1; }
+
+.project__link,
+.tile,
+.timeline__card {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.thumb > svg:first-child { transition: transform 0.9s var(--ease); }
+.project__link:hover .thumb > svg:first-child { transform: scale(1.06); }
+
+.circle-arrow { transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease; }
+.circle-arrow svg { transition: transform 0.45s var(--ease); }
+.project__link:hover .circle-arrow svg { transform: translate(2px, -2px) rotate(8deg); }
+
+.archive a { transition: background-color 0.3s ease; }
+.archive__name { transition: transform 0.45s var(--ease), color 0.3s ease; }
+.archive__go svg { transition: transform 0.45s var(--ease); }
+.archive a:hover .archive__name { transform: translateX(10px); }
+.archive a:hover .archive__go svg { transform: translate(3px, -3px); }
+
+.btn {
+  transform: translate(var(--tx, 0px), var(--ty, 0px));
+  transition: transform 0.35s var(--ease), box-shadow 0.35s ease, border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover { transform: translate(var(--tx, 0px), calc(var(--ty, 0px) - 2px)); }
+.btn:active { transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(0.97); }
+.btn .icon { transition: transform 0.4s var(--ease); }
+.btn:hover .icon { transform: translateY(3px); }
+
+.socials a,
+.to-top,
+.contact__mail,
+.site-nav a { transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+
+/* ---------- 8. Навігація і прогрес ---------- */
+
+.bar { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+
+.site-header.is-scrolled .bar {
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 50px -24px rgb(0 0 0 / 0.8);
+}
+
+.site-nav a { position: relative; }
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad);
+  box-shadow: 0 0 10px var(--glow-1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current="true"]::after { transform: scaleX(1); }
+.site-nav a[aria-current="true"] { color: var(--text); }
+
+.scroll-progress {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 2px;
+  background: var(--grad);
+  transform-origin: left;
+  transform: scaleX(var(--sp, 0));
+  pointer-events: none;
+}
+
+/* ---------- 9. Хронологія ---------- */
+
+.timeline::before {
+  transform-origin: top;
+  transform: scaleY(var(--p, 1));
+}
+
+.js .timeline li::before { transition: background-color 0.5s ease, box-shadow 0.5s ease; }
+
+.js .timeline li:not(.is-lit)::before {
+  background: var(--line-strong);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+
+/* ---------- 10. Світло за курсором ---------- */
+
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--neon-1) 15%, transparent), transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  will-change: transform;
+}
+
+.cursor-glow.is-on { opacity: 1; }
+
+/* ---------- 11. Перехід між сторінками і вікно проєкту ---------- */
+
+/* Плавний перехід між сторінками. Прев’ю проєкту розтягується у вікно перегляду.
+   У браузерах без підтримки перехід просто миттєвий */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.45s; animation-timing-function: var(--ease); }
+
+::view-transition-group(*) { animation-duration: 0.7s; animation-timing-function: var(--ease); }
+
+/* Шапка лишається на місці, поки змінюється сторінка */
+.site-header { view-transition-name: site-header; }
+
+/* Вікно проєкту плавно змінює розмір */
+.viewer__window { transition: width 0.6s var(--ease); }
+
+.size-btn { transition: background-color 0.3s ease, color 0.3s ease; }
+.tool-btn, .back, .pager-link { transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease; }
+.pager-link__title { transition: color 0.3s ease; }
+
+/* ---------- Повага до налаштування «зменшити рух» ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js [data-reveal] { opacity: 1; transform: none; }
+  .cursor-glow { display: none; }
+}
+
+@media (hover: none) {
+  .cursor-glow { display: none; }
+}
