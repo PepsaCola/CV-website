@@ -1,6 +1,6 @@
 // Мовонезалежні дані проєктів. Описи, роль і статус лежать у src/i18n (поле projects).
 
-export type ProjectSlug = 'taskpro' | 'kidsstory' | 'barbershop'
+export type ProjectSlug = 'onlinemarket' | 'taskpro' | 'kidsstory' | 'barbershop'
 
 export interface Project {
     slug: ProjectSlug
@@ -16,6 +16,15 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+        slug: 'onlinemarket',
+        title: 'Online Market',
+        year: 2025,
+        tags: ['React', 'Redux Toolkit', 'Node.js', 'MongoDB'],
+        liveUrl: 'https://online-market-bay.vercel.app',
+        embedUrl: 'https://online-market-bay.vercel.app',
+        repoUrl: 'https://github.com/PepsaCola/online-market',
+    },
     {
         slug: 'taskpro',
         title: 'TaskPro',

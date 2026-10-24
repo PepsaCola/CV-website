@@ -138,6 +138,17 @@ export const de: Dictionary = {
         home: '← Zur Startseite',
     },
     projects: {
+        onlinemarket: {
+            desc: 'Onlineshop mit Produktkatalog, Suche, Filtern, Warenkorb, Favoriten und Benutzerkonten.',
+            role: 'Fullstack',
+            status: 'Live',
+            brief: {
+                task: 'Ein vollständiger Onlineshop: Katalog mit Suche und Filtern, Produktseiten, Warenkorb, Favoriten und persönliche Konten.',
+                solution:
+                    'React-Client mit Redux Toolkit, Redux Persist, React Router und styled-components sowie eine REST-API mit Express, JWT-Authentifizierung, Joi-Validierung und MongoDB. ESLint, Prettier und Husky sorgen für einheitlichen Code.',
+                result: 'Client und API laufen auf Vercel: Man kann Produkte ansehen, sich registrieren und den Warenkorb füllen.',
+            },
+        },
         taskpro: {
             desc: 'Kanban-Board zur Aufgabenplanung: eigene Boards, Spalten, Karten mit Priorität und Deadline, helles und dunkles Design.',
             role: 'Fullstack',

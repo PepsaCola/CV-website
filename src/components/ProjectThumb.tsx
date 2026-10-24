@@ -2,6 +2,29 @@ import type { ReactElement } from 'react'
 import type { ProjectSlug } from '../data/projects.ts'
 
 const thumbs: Record<ProjectSlug, ReactElement> = {
+    onlinemarket: (
+        <>
+            <path className="t-grid" d="M0 70H400M0 120H400M0 170H400M0 220H400" />
+            {/* Сітка карток товарів */}
+            <rect className="t-tower t-tower--1" x="60" y="70" width="80" height="100" rx="9" />
+            <rect className="t-tower t-tower--2" x="152" y="70" width="80" height="100" rx="9" />
+            <rect className="t-tower t-tower--1" x="60" y="182" width="80" height="58" rx="9" />
+            <rect className="t-tower t-tower--2" x="152" y="182" width="80" height="58" rx="9" />
+            <rect className="t-soft" x="72" y="82" width="56" height="46" rx="6" />
+            <rect className="t-soft" x="164" y="82" width="56" height="46" rx="6" />
+            <rect className="t-win" x="72" y="138" width="40" height="5" rx="2.5" />
+            <rect className="t-win" x="164" y="138" width="40" height="5" rx="2.5" />
+            <rect className="t-win t-win--dim" x="72" y="150" width="26" height="4" rx="2" />
+            <rect className="t-win t-win--dim" x="164" y="150" width="26" height="4" rx="2" />
+            {/* Кошик із лічильником */}
+            <g filter="url(#f-glow)">
+                <path d="M262 112H278L292 182H340L352 132H284" fill="none" stroke="url(#g-line)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="300" cy="200" r="7" fill="url(#g-sun)" />
+                <circle cx="332" cy="200" r="7" fill="url(#g-sun)" />
+            </g>
+            <circle className="t-dot" cx="350" cy="110" r="10" />
+        </>
+    ),
     taskpro: (
         <>
             <path className="t-grid" d="M0 70H400M0 120H400M0 170H400M0 220H400" />

@@ -138,6 +138,17 @@ export const en: Dictionary = {
         home: '← Back to home',
     },
     projects: {
+        onlinemarket: {
+            desc: 'Online store with a product catalog, search, filters, cart, favorites and user accounts.',
+            role: 'Fullstack',
+            status: 'Live',
+            brief: {
+                task: 'Build a full online shop: a catalog with search and filters, product pages, a cart, favorites and personal accounts.',
+                solution:
+                    'React client with Redux Toolkit, Redux Persist, React Router and styled-components, plus a REST API on Express with JWT auth, Joi validation and MongoDB. ESLint, Prettier and Husky keep the code consistent.',
+                result: 'Both the client and the API are deployed on Vercel: you can browse products, sign up and fill a cart.',
+            },
+        },
         taskpro: {
             desc: 'Kanban board for task planning: separate boards, columns, cards with priority and deadline, light and dark themes.',
             role: 'Fullstack',

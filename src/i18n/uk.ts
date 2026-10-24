@@ -138,6 +138,17 @@ export const uk: Dictionary = {
         home: '← На головну',
     },
     projects: {
+        onlinemarket: {
+            desc: 'Інтернет-магазин із каталогом товарів, пошуком, фільтрами, кошиком, обраним і особистими кабінетами.',
+            role: 'Fullstack',
+            status: 'Запущено',
+            brief: {
+                task: 'Повноцінний інтернет-магазин: каталог із пошуком і фільтрами, сторінки товарів, кошик, обране та особисті кабінети.',
+                solution:
+                    'Клієнт на React із Redux Toolkit, Redux Persist, React Router і styled-components, REST API на Express із JWT-авторизацією, валідацією Joi та MongoDB. ESLint, Prettier і Husky стежать за якістю коду.',
+                result: 'Клієнт і API розгорнуто на Vercel: можна переглядати товари, зареєструватися й наповнити кошик.',
+            },
+        },
         taskpro: {
             desc: 'Канбан-дошка для планування задач: окремі дошки, колонки, картки з пріоритетом і дедлайном, світла й темна теми.',
             role: 'Fullstack',
