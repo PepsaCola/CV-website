@@ -1,75 +1,71 @@
-# React + TypeScript + Vite
+# Kyrylo Meister · Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio preview](public/og.png)
 
-Currently, two official plugins are available:
+My personal portfolio: selected projects, experience and contact. I'm a frontend developer based in Halle (Saale), Germany, working with React, TypeScript and Next.js.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Three languages.** English by default, plus German and Ukrainian. The choice is saved between visits, and `<html lang>` follows it.
+- **Live project previews.** Each project page opens the real site in an `iframe` with desktop, tablet and mobile widths.
+- **Page transitions** with the View Transitions API: the project card turns into the preview window.
+- **Three neon color palettes**, also saved between visits.
+- **Respects reduced motion.** Animations and transitions turn off with `prefers-reduced-motion`.
+- **Type-safe translations.** All dictionaries share one `Dictionary` type, so a missing string fails the build.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Projects
 
-## Expanding the ESLint configuration
+| Project | What it is | Stack |
+| --- | --- | --- |
+| [TaskPro](https://todo-app-tau-inky-54.vercel.app) · [code](https://github.com/PepsaCola/todo-app) | Kanban board with boards, columns, priorities, deadlines and themes | React, Redux Toolkit, Node.js, MongoDB |
+| [Kidsstory](https://kidsstory-seven.vercel.app) · [code](https://github.com/PepsaCola/kidsstory) | Multi-page site for an English-language kindergarten | React, React Router, styled-components, Leaflet |
+| [BarberShop](https://pepsacola.github.io/BarberShop/) · [code](https://github.com/PepsaCola/BarberShop) | Landing page for a barbershop with a booking pop-up | HTML, Sass, JavaScript |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React 19 · TypeScript · Vite · React Router · plain CSS (custom properties, `color-mix`, View Transitions)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Requires Node.js 20.19+ or 22.12+.
 
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server at http://localhost:5173 |
+| `npm run build` | Type check and production build into `dist/` |
+| `npm run preview` | Serves the production build locally |
+| `npm run lint` | Runs ESLint |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
 
 ```
+public/            favicon, OG image, photo, CV
+src/
+  components/      layout, shared UI and home page sections (home/)
+  data/            language-independent data: profile, projects, socials
+  hooks/           scroll, media query and pointer hooks
+  i18n/            dictionaries (en, de, uk), language context, helpers
+  pages/           home, project and 404 pages
+  styles/          global styles, project page, animations
+```
+
+## Adding a project
+
+1. Add an entry to `src/data/projects.ts` and its slug to `ProjectSlug`.
+2. Add its texts under `projects` in `src/i18n/en.ts`, `de.ts` and `uk.ts`.
+3. Draw a thumbnail in `src/components/ProjectThumb.tsx`.
+
+TypeScript will point out anything that's missing.
+
+## Deployment
+
+Hosted on Vercel. `vercel.json` sends every route to `index.html`, so links like `/projects/taskpro` work on reload. The absolute URL in the Open Graph tags comes from `VERCEL_PROJECT_PRODUCTION_URL` (see `vite.config.ts`).
+
+## Contact
+
+meysterkiril@gmail.com · [LinkedIn](https://www.linkedin.com/in/kyrylo-meister-683678356/) · [Telegram](https://t.me/kyryluch)
