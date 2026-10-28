@@ -34,6 +34,7 @@ export const de: Dictionary = {
         archive: 'Archiv',
         techLabel: 'Technologien',
         archiveTypes: {
+            kidsstory: 'Mehrseitige Website',
             positivus: 'Landingpage',
             webstudio: 'Landingpage',
             fortnite: 'Web-App-Prototyp',
@@ -161,16 +162,15 @@ export const de: Dictionary = {
                     'Die App ist auf Vercel veröffentlicht: Man kann sich registrieren, Boards anlegen und Aufgaben von jedem Gerät aus verwalten.',
             },
         },
-        kidsstory: {
-            desc: 'Mehrseitige Website für einen englischsprachigen Kindergarten und Club: Stundenplan, News, Bewertungen, Karte und Anmeldeformulare.',
-            role: 'Frontend',
+        fleetops: {
+            desc: 'Flottenmanagement für ein Transportunternehmen: Live-Karte der Fahrzeuge, Dispositionsboard mit Drag-and-drop, Fahrzeuge und Fahrer.',
+            role: 'Fullstack',
             status: 'Live',
             brief: {
-                task: 'Eltern sollten schnell Stundenplan, News und Kontakte finden und ihr Kind anmelden können, auf dem Smartphone genauso bequem wie am Desktop.',
+                task: 'Disponenten müssen sehen, wo jedes Fahrzeug ist, Fahrten ohne Doppelbuchungen planen und Fahrzeuge und Fahrer an einem Ort verwalten, mit getrennten Rechten für Disponenten und Betrachter.',
                 solution:
-                    'Eine Website mit 15 Seiten plus Detailseiten für News und Angebote, umgesetzt mit React 19 und React Router 7. Styling mit styled-components, Karussells mit Swiper und Slick, eine interaktive Leaflet-Karte und Anmeldeformulare mit Modalfenstern. Das Layout ist für Smartphone und Desktop angepasst.',
-                result:
-                    'Die Website ist auf Vercel veröffentlicht: Stundenplan, News, Bewertungen, Dokumente und Anfahrtskarte sind an einem Ort, die Anmeldeformulare sind von der Startseite aus erreichbar.',
+                    'Client mit React 19 und TypeScript, TanStack Query, einer Live-Karte auf MapLibre und einem Gantt-Board mit dnd-kit und optimistischen Updates. Fastify-API auf PostgreSQL mit PostGIS und Drizzle: Exclusion Constraints verhindern Doppelbuchungen, der typisierte Client wird aus dem OpenAPI-Vertrag generiert.',
+                result: 'Beide Teile laufen auf Vercel mit CI. In der Demo kann man sich mit einem Klick als Disponent oder Betrachter anmelden.',
             },
         },
         barbershop: {

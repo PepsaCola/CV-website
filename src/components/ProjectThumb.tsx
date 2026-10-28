@@ -51,32 +51,20 @@ const thumbs: Record<ProjectSlug, ReactElement> = {
             </g>
         </>
     ),
-    kidsstory: (
+    fleetops: (
         <>
-            <circle className="t-star" cx="70" cy="95" r="1.5" />
-            <circle className="t-star" cx="335" cy="85" r="1.5" />
-            <circle className="t-star" cx="92" cy="160" r="1.2" />
-            <circle className="t-star" cx="322" cy="150" r="1.2" />
-            <circle className="t-star" cx="345" cy="205" r="1" />
-            <g transform="translate(0 14)">
-                {/* Зірка над пірамідою */}
-                <polygon
-                    points="200,36 204.1,46.3 215.2,47.1 206.7,54.2 209.4,64.9 200,59 190.6,64.9 193.3,54.2 184.8,47.1 195.9,46.3"
-                    fill="url(#g-sun)"
-                    strokeLinejoin="round"
-                    filter="url(#f-glow)"
-                />
-                {/* Піраміда з кубиків */}
-                <rect className="t-tower t-tower--1" x="105" y="160" width="90" height="80" rx="8" />
-                <circle className="t-ring" cx="150" cy="200" r="20" />
-                <rect className="t-tower t-tower--2" x="205" y="160" width="90" height="80" rx="8" />
-                <path className="t-soft" d="M250 178L274 222H226Z" strokeLinejoin="round" />
-                <g transform="rotate(-8 200 120)">
-                    <rect className="t-tower t-tower--1" x="155" y="80" width="90" height="80" rx="8" />
-                    <rect className="t-soft" x="178" y="102" width="44" height="36" rx="5" />
-                </g>
-                <path d="M50 240H350" stroke="url(#g-line)" strokeWidth="2" strokeLinecap="round" filter="url(#f-glow)" />
-            </g>
+            <path className="t-grid" d="M0 70H400M0 120H400M0 170H400M80 0V215M160 0V215M240 0V215M320 0V215" />
+            {/* Маршрут на карті й авто на ньому */}
+            <path d="M60 190C110 110 150 210 205 150S300 80 345 100" fill="none" stroke="url(#g-line)" strokeWidth="3" strokeLinecap="round" filter="url(#f-glow)" />
+            <circle className="t-ring" cx="132" cy="165" r="14" />
+            <circle className="t-dot" cx="132" cy="165" r="5" />
+            <circle className="t-dot" cx="268" cy="108" r="5" />
+            <circle cx="345" cy="100" r="8" fill="url(#g-sun)" filter="url(#f-glow)" />
+            {/* Дошка диспетчера: рейси на шкалі часу */}
+            <rect className="t-tower t-tower--1" x="60" y="232" width="112" height="14" rx="7" />
+            <rect className="t-tower t-tower--2" x="186" y="232" width="74" height="14" rx="7" />
+            <rect className="t-tower t-tower--2" x="96" y="256" width="88" height="14" rx="7" />
+            <rect className="t-tower t-tower--1" x="200" y="256" width="140" height="14" rx="7" />
         </>
     ),
     barbershop: (

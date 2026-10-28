@@ -33,9 +33,10 @@ export const technologies = [
     'Vite',
 ]
 
-export type ArchiveId = 'positivus' | 'webstudio' | 'fortnite'
+export type ArchiveId = 'kidsstory' | 'positivus' | 'webstudio' | 'fortnite'
 
 export const archive: { id: ArchiveId; name: string; tech: string; year: number; href: string }[] = [
+    { id: 'kidsstory', name: 'Kidsstory', tech: 'React, styled-components', year: 2025, href: 'https://github.com/PepsaCola/kidsstory' },
     { id: 'positivus', name: 'Positivus', tech: 'HTML, Sass', year: 2024, href: 'https://github.com/PepsaCola/maket-1' },
     { id: 'webstudio', name: 'Web Studio', tech: 'HTML, Sass', year: 2024, href: 'https://github.com/PepsaCola/hm-8' },
     {

@@ -1,6 +1,6 @@
 // Мовонезалежні дані проєктів. Описи, роль і статус лежать у src/i18n (поле projects).
 
-export type ProjectSlug = 'onlinemarket' | 'taskpro' | 'kidsstory' | 'barbershop'
+export type ProjectSlug = 'onlinemarket' | 'taskpro' | 'fleetops' | 'barbershop'
 
 export interface Project {
     slug: ProjectSlug
@@ -16,6 +16,15 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+    {
+        slug: 'fleetops',
+        title: 'FleetOps',
+        year: 2026,
+        tags: ['React', 'TypeScript', 'TanStack Query', 'Fastify', 'PostgreSQL'],
+        liveUrl: 'https://fleetops-web-eight.vercel.app',
+        embedUrl: 'https://fleetops-web-eight.vercel.app',
+        repoUrl: 'https://github.com/PepsaCola/fleetops-web',
+    },
     {
         slug: 'onlinemarket',
         title: 'Online Market',
@@ -33,15 +42,6 @@ export const projects: Project[] = [
         liveUrl: 'https://todo-app-tau-inky-54.vercel.app',
         embedUrl: 'https://todo-app-tau-inky-54.vercel.app',
         repoUrl: 'https://github.com/PepsaCola/todo-app',
-    },
-    {
-        slug: 'kidsstory',
-        title: 'Kidsstory',
-        year: 2025,
-        tags: ['React', 'React Router', 'styled-components', 'Leaflet'],
-        liveUrl: 'https://kidsstory-seven.vercel.app',
-        embedUrl: 'https://kidsstory-seven.vercel.app',
-        repoUrl: 'https://github.com/PepsaCola/kidsstory',
     },
     {
         slug: 'barbershop',

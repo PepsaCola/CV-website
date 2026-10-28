@@ -34,6 +34,7 @@ export const en: Dictionary = {
         archive: 'Archive',
         techLabel: 'Technologies',
         archiveTypes: {
+            kidsstory: 'Multi-page website',
             positivus: 'Landing page',
             webstudio: 'Landing page',
             fortnite: 'Web app prototype',
@@ -160,16 +161,15 @@ export const en: Dictionary = {
                 result: 'The app is deployed on Vercel: you can register, create boards and manage tasks from any device.',
             },
         },
-        kidsstory: {
-            desc: 'Multi-page website for an English-language kindergarten and club: schedule, news, reviews, map and sign-up forms.',
-            role: 'Frontend',
+        fleetops: {
+            desc: 'Fleet operations app for a transport company: a live map of the fleet, a drag-and-drop dispatch board, vehicles and drivers.',
+            role: 'Fullstack',
             status: 'Live',
             brief: {
-                task: 'Parents needed a site where they can quickly find the schedule, news and contacts and sign a child up, equally comfortable on a phone and on a desktop.',
+                task: 'A dispatcher needs to see where every vehicle is, plan trips without double bookings and keep vehicles and drivers in one place, with separate rights for dispatchers and viewers.',
                 solution:
-                    'A site of 15 pages plus detail pages for news and services, built with React 19 and React Router 7. Styling with styled-components, carousels with Swiper and Slick, an interactive Leaflet map and sign-up forms with modal windows. The layout is adapted for phone and desktop.',
-                result:
-                    'The site is deployed on Vercel: schedule, news, reviews, documents and the route map are in one place, and sign-up forms are reachable from the home page.',
+                    'React 19 and TypeScript client with TanStack Query, a live MapLibre map and a dnd-kit Gantt board with optimistic updates. Fastify API on PostgreSQL with PostGIS and Drizzle: exclusion constraints rule out double bookings, and the typed client is generated from the OpenAPI contract.',
+                result: 'Both parts are deployed on Vercel with CI. The demo has one-click sign-in as a dispatcher or a viewer.',
             },
         },
         barbershop: {
